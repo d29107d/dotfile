@@ -53,7 +53,9 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+  -- use "lunarvim/darkplus.nvim"
+
+  use "sainnhe/everforest"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -84,6 +86,23 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+  use "rmagatti/alternate-toggler"
+
+  use "gcmt/wildfire.vim"
+
+  use "lukas-reineke/indent-blankline.nvim"
+
+  use "nvim-lualine/lualine.nvim"
+
+  use "liuchengxu/vista.vim"
+
+  --[[ use "tommcdo/vim-exchange" ]]
+  --[[ use "svermeulen/vim-subversive" ]]
+  --[[ use "tpope/vim-surround" ]]
+  --[[ use "machakann/vim-sandwich" ]]
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

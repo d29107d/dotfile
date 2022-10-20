@@ -22,8 +22,9 @@ local options = {
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  tabstop = 2,                             -- insert 2 spaces for a tab
+  --[[ shiftwidth = 2,                          -- the number of spaces inserted for each indentation ]]
+  --[[ tabstop = 4,                             -- insert 4 spaces for a tab ]]
+  --[[ softtabstop = 4,                          -- insert 4 spaces for a tab ]]
   cursorline = true,                       -- highlight the current line
   number = true,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
@@ -43,4 +44,14 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+vim.cmd [[set tabstop=4]]
+vim.cmd [[set softtabstop=4]]
+vim.cmd [[set shiftwidth=4]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+-- Remember the last location
+vim.cmd [[if has("autocmd")                                                          
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
+endif]]
+-- Don't auto comment on line breaks
+vim.cmd [[au FileType c,cpp setlocal comments-=:// comments+=f://au FileType lua,py,go,c,cpp setlocal comments-=:// comments+=f://
+]]

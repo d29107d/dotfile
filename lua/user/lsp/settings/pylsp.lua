@@ -1,0 +1,8 @@
+return {
+	settings = {
+        plugins = {
+            jedi = {
+            },
+        },
+	},
+}
