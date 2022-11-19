@@ -15,6 +15,11 @@ lsp_installer.on_server_ready(function(server)
     --[[     local pyright = require("user.lsp.settings.pyright")  ]]
     --[[     opts = vim.tbl_deep_extend("force", pyright, opts) ]]
     --[[ end ]]
+	 if server.name == "gopls" then
+	 	local gopls_opts = require("user.lsp.settings.gopls")
+	 	opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+	 end
+
 
 	 if server.name == "pylsp" then
 	 	local pylsp_opts = require("user.lsp.settings.pylsp")

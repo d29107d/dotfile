@@ -74,8 +74,28 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 
+  use "tclh123/vim-thrift"
+
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+--  use "nvim-telescope/telescope.nvim"
+
+    --use {
+      -- Fuzzy finder
+      -- 'nvim-telescope/telescope.nvim',
+      -- requires = {
+      --   { "nvim-telescope/telescope-live-grep-args.nvim" },
+      -- },
+      -- config = function()
+      --   require("telescope").load_extension("live_grep_args")
+      -- end
+      --[[ requires = { ]]
+      --[[   'nvim-lua/plenary.nvim', -- Useful Lua utilities ]]
+      --[[]]
+      --[[   -- FZF sorter for Telescope ]]
+      --[[   { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, ]]
+      --[[   'nvim-telescope/telescope-ui-select.nvim', ]]
+      --[[ }, ]]
+    --}
 
   -- Treesitter
   use {
@@ -83,6 +103,8 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+
+  use "Yggdroot/LeaderF"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -94,14 +116,34 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
 
   use "nvim-lualine/lualine.nvim"
+  use "akinsho/toggleterm.nvim"
+  use "folke/which-key.nvim"
 
   use "liuchengxu/vista.vim"
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
 
   --[[ use "tommcdo/vim-exchange" ]]
   --[[ use "svermeulen/vim-subversive" ]]
   --[[ use "tpope/vim-surround" ]]
   --[[ use "machakann/vim-sandwich" ]]
 
+    --[[ use({ ]]
+    --[[   'ojroques/nvim-osc52', ]]
+    --[[   config = function() ]]
+    --[[     require('osc52').setup() ]]
+    --[[     local function copy() ]]
+    --[[       if vim.v.event.operator == 'y' and vim.v.event.regname == '' then ]]
+    --[[         require('osc52').copy_register('"') ]]
+    --[[       end ]]
+    --[[     end ]]
+    --[[]]
+    --[[     vim.api.nvim_create_autocmd('TextYankPost', { callback = copy }) ]]
+    --[[   end ]]
+    --[[ }) ]]
 
 
   -- Automatically set up your configuration after cloning packer.nvim

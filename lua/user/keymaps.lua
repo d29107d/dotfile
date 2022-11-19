@@ -37,6 +37,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-d>", ":BufferLinePickClose<CR>", opts)
 keymap("n", "<S-c>", ":BufferLinePick<CR>", opts)
 keymap("n", "<S-p>", ":BufferLineTogglePin<CR>", opts)
+keymap("n", "<S-q>", ":bd<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -71,12 +72,43 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+--[[ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts) ]]
 
--- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+--[[ keymap("n", "<leader>h", ":nohl<cr>", opts) ]]
 
-keymap("n", "<leader>ta", "<cmd>ToggleAlternate<cr>", opts)
+--keymap("n", "<leader>f", "<cmd>Telescope find_files <cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+--keymap("n", "<leader>a", "<cmd>Telescope live_grep<cr>", opts)
+--keymap("n", "<leader>b", "<cmd>Telescope buffers <cr>", opts)
+--keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.grep_string{ shorten_path = true, only_sort_text = true, search = '', use_regex = false }<cr>", opts)
 
-keymap("n", "<leader>l", ":Vista!!<cr>", opts)
+--keymap("v", "<leader>g", "<cmd>lua find_by_visual_selection()<cr>", opts)
+
+--[[ keymap("n", "<leader>ta", "<cmd>ToggleAlternate<cr>", opts) ]]
+
+keymap("n", "<S-m>", ":Vista!!<cr>", opts)
+
+keymap("n", "<leader>fd", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+
+-- Lua
+--[[ keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", ]]
+--[[   {silent = true, noremap = true} ]]
+--[[ ) ]]
+--[[ keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", ]]
+--[[   {silent = true, noremap = true} ]]
+--[[ ) ]]
+--[[ keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", ]]
+--[[   {silent = true, noremap = true} ]]
+--[[ ) ]]
+--[[ keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", ]]
+--[[   {silent = true, noremap = true} ]]
+--[[ ) ]]
+--[[ keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", ]]
+--[[   {silent = true, noremap = true} ]]
+--[[ ) ]]
+--[[ keymap("n", "<leader>fr", "<cmd>TroubleToggle lsp_references<cr>", ]]
+--[[   {silent = true, noremap = true} ]]
+--[[ ) ]]
+--[[ keymap("n", "<leader>fx", "<cmd>lua vim.lsp.buf.format { async = true }<cr>", ]]
+--[[   {silent = true, noremap = true} ]]
+--[[ ) ]]
