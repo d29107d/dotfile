@@ -80,11 +80,50 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 --keymap("n", "<leader>a", "<cmd>Telescope live_grep<cr>", opts)
 --keymap("n", "<leader>b", "<cmd>Telescope buffers <cr>", opts)
---keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.grep_string{ shorten_path = true, only_sort_text = true, search = '', use_regex = false }<cr>", opts)
+--keymap("n", "<leader>gg", "<cmd>lua require'telescope.builtin'.grep_string{ shorten_path = true, only_sort_text = true, search = '', use_regex = false }<cr>", opts)
 
---keymap("v", "<leader>g", "<cmd>lua find_by_visual_selection()<cr>", opts)
+--keymap("v", "<leader>gg", "<cmd>lua require'user.telescope'.find_by_visual_selection()<cr>", opts)
 
 --[[ keymap("n", "<leader>ta", "<cmd>ToggleAlternate<cr>", opts) ]]
+--
+function vim.getVisualSelection()
+	vim.cmd('noau normal! "vy"')
+	local text = vim.fn.getreg('v')
+	vim.fn.setreg('v', {})
+
+	text = string.gsub(text, "\n", "")
+	if #text > 0 then
+		return text
+	else
+		return ''
+	end
+end
+
+local tb = require('telescope.builtin')
+
+local vim_keymap = vim.keymap.set
+vim_keymap('n', '<leader>gb', function()
+  local text = vim.call('expand','<cword>')
+	tb.current_buffer_fuzzy_find({ default_text = text })
+end, opts)
+vim_keymap('v', '<leader>gb', function()
+	local text = vim.getVisualSelection()
+	tb.current_buffer_fuzzy_find({ default_text = text })
+end, opts)
+
+keymap("n", "<leader>gc", "<cmd>GrepInDirectory<CR>", opts)
+keymap("n", "<leader>fc", "<cmd>FileInDirectory<CR>", opts)
+
+--keymap("n", "<leader>gc", ":lua require('telescope').extensions.live_grep_args()<CR>", opts)
+vim_keymap('n', '<leader>gg', ':Telescope live_grep<cr>', opts)
+vim_keymap('n', '<leader>ga', function()
+  local text = vim.call('expand','<cword>')
+	tb.live_grep({ default_text = text })
+end, opts)
+vim_keymap('v', '<leader>ga', function()
+	local text = vim.getVisualSelection()
+	tb.live_grep({ default_text = text })
+end, opts)
 
 keymap("n", "<S-m>", ":Vista!!<cr>", opts)
 

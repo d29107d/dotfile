@@ -13,7 +13,7 @@ require "user.nvim-tree"
 require "user.bufferline"
 require "user.indent-blankline"
 require "user.lualine"
-require "user.leaderf"
+--require "user.leaderf"
 --[[ require "user.trouble" ]]
 require "user.whichkey"
 require "user.toggleterm"

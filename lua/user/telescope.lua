@@ -5,6 +5,8 @@ end
 
 local actions = require "telescope.actions"
 
+telescope.load_extension("dir")
+
 telescope.setup {
   defaults = {
 
@@ -80,19 +82,19 @@ telescope.setup {
   pickers = {
     find_files = {
       theme = "dropdown",
-      prompt_prefix = "🔍",
+      --prompt_prefix = "🔍",
     },    
     live_grep = {
       theme = "dropdown",
-      prompt_prefix = "🔍",
+      --prompt_prefix = "🔍",
     },
     buffers = {
       theme = "dropdown",
-      prompt_prefix = "🔍",
+      --prompt_prefix = "🔍",
     },
     grep_string = {
       theme = "dropdown",
-      prompt_prefix = "🔍",
+      --prompt_prefix = "🔍",
     },
 
   },
@@ -104,32 +106,3 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
-
-function get_visual_selection()
-    -- Yank current visual selection into the 'v' register
-    --
-    -- Note that this makes no effort to preserve this register
-    vim.cmd('noau normal! "vy"')
-
-    return vim.fn.getreg('v')
-end
-
-function find_by_visual_selection()
-    s = get_visual_selection()
-    require'telescope.builtin'.grep_string{ shorten_path = true, only_sort_text = true, search = s, use_regex = false }
-end
-
---[[ function get_visual_selection() ]]
---[[   local s_start = vim.fn.getpos("'<") ]]
---[[   local s_end = vim.fn.getpos("'>") ]]
---[[   local n_lines = math.abs(s_end[2] - s_start[2]) + 1 ]]
---[[   local lines = vim.api.nvim_buf_get_lines(0, s_start[2] - 1, s_end[2], false) ]]
---[[   lines[1] = string.sub(lines[1], s_start[3], -1) ]]
---[[   if n_lines == 1 then ]]
---[[     lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3] - s_start[3] + 1) ]]
---[[   else ]]
---[[     lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3]) ]]
---[[   end ]]
---[[     print(lines) ]]
---[[   return table.concat(lines, '\n') ]]
---[[ end ]]

@@ -83,27 +83,39 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
 
   use "ggandor/leap.nvim"
+  use "ggandor/flit.nvim"
 
   -- Telescope
---  use "nvim-telescope/telescope.nvim"
+  -- use "nvim-telescope/telescope.nvim"
 
-    --use {
-      -- Fuzzy finder
-      -- 'nvim-telescope/telescope.nvim',
-      -- requires = {
-      --   { "nvim-telescope/telescope-live-grep-args.nvim" },
-      -- },
-      -- config = function()
-      --   require("telescope").load_extension("live_grep_args")
-      -- end
-      --[[ requires = { ]]
-      --[[   'nvim-lua/plenary.nvim', -- Useful Lua utilities ]]
-      --[[]]
-      --[[   -- FZF sorter for Telescope ]]
-      --[[   { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, ]]
-      --[[   'nvim-telescope/telescope-ui-select.nvim', ]]
-      --[[ }, ]]
-    --}
+  use({
+    "princejoogie/dir-telescope.nvim",
+    -- telescope.nvim is a required dependency
+    requires = {"nvim-telescope/telescope.nvim"},
+    config = function()
+      require("dir-telescope").setup({
+        hidden = true,
+        respect_gitignore = true,
+      })
+    end,
+  })
+
+  use {
+    -- Fuzzy finder
+    'nvim-telescope/telescope.nvim',
+    --requires = {
+    --  { "nvim-telescope/telescope-live-grep-args.nvim" },
+    --},
+    --config = function()
+    --  require("telescope").load_extension("live_grep_args")
+    --end,
+    requires = {
+      'nvim-lua/plenary.nvim', -- Useful Lua utilities
+      -- FZF sorter for Telescope
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      'nvim-telescope/telescope-ui-select.nvim',
+    },
+  }
 
   -- Treesitter
   -- The goal of nvim-treesitter is both to provide a simple and easy way to use the interface for tree-sitter in Neovim and to provide some basic functionality such as highlighting based on it:
@@ -112,7 +124,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
 
-  use "Yggdroot/LeaderF"
+  --[[ use "Yggdroot/LeaderF" ]]
 
   -- Git
   use "lewis6991/gitsigns.nvim"

@@ -38,10 +38,11 @@ local mappings = {
     name = "Find Files",
     r = { "<cmd>TroubleToggle lsp_references<cr>", "Toggle lsp_references" },
     x = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Toggle lsp format" },
-    b = { ":<C-U><C-R>=printf(\"Leaderf buffer %s\", \"\")<CR><CR>", "Leaderf buffer" },
-    m = { ":<C-U><C-R>=printf(\"Leaderf mru %s\", \"\")<CR><CR>", "Leaderf mru" },
-    t = { ":<C-U><C-R>=printf(\"Leaderf bufTag %s\", \"\")<CR><CR>", "Leaderf bufTag" },
-    l = { ":<C-U><C-R>=printf(\"Leaderf line %s\", \"\")<CR><CR>", "Leaderf line" },
+    b = { "<cmd>Telescope buffers <cr>", "Find buffer" },
+    f = { "<cmd>Telescope find_files <cr>", "Find file" },
+    --[[ m = { ":<C-U><C-R>=printf(\"Leaderf mru %s\", \"\")<CR><CR>", "Find mru" }, ]]
+    --[[ t = { ":<C-U><C-R>=printf(\"Leaderf bufTag %s\", \"\")<CR><CR>", "Find bufTag" }, ]]
+    --[[ l = { ":<C-U><C-R>=printf(\"Leaderf line %s\", \"\")<CR><CR>", "Find line" }, ]]
   },
   --[[ f = { ":Telescope find_files<cr>", "Telescope Find Files" }, ]]
   --[[ r = { ":Telescope live_grep<cr>", "Telescope Live Grep" }, ]]
@@ -75,11 +76,11 @@ local mappings = {
   m = {
     m = { '<cmd>messages<cr>', "Show messages" },
   },
-  z = {
-    name = "Focus",
-    z = { ":ZenMode<cr>", "Toggle Zen Mode" },
-    t = { ":Twilight<cr>", "Toggle Twilight" }
-  },
+  --z = {
+  --  name = "Focus",
+  --  z = { ":ZenMode<cr>", "Toggle Zen Mode" },
+  --  t = { ":Twilight<cr>", "Toggle Twilight" }
+  --},
   p = {
     name = "Packer",
     r = { ":PackerClean<cr>", "Remove Unused Plugins" },
