@@ -17,3 +17,5 @@ require "user.leaderf"
 --[[ require "user.trouble" ]]
 require "user.whichkey"
 require "user.toggleterm"
+
+require "user.leap"

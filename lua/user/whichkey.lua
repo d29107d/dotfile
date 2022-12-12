@@ -67,10 +67,13 @@ local mappings = {
     D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', "Go To Declaration" },
     r = { '<cmd>lua vim.lsp.buf.references()<cr>', "References" },
     R = { '<cmd>Lspsaga rename<cr>', "Rename" },
-    a = { '<cmd>Lspsaga code_action<cr>', "Code Action" },
+    a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', "Code Action" },
     e = { '<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line Diagnostics" },
     n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic" },
     N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic" }
+  },
+  m = {
+    m = { '<cmd>messages<cr>', "Show messages" },
   },
   z = {
     name = "Focus",

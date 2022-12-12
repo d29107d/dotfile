@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
+  use "JoosepAlviste/nvim-ts-context-commentstring"
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
@@ -55,6 +56,7 @@ return packer.startup(function(use)
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
 
+  -- Colorschemes
   use "sainnhe/everforest"
 
   -- cmp plugins
@@ -64,6 +66,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+
+  use "kqito/vim-easy-replace"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -75,6 +79,10 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 
   use "tclh123/vim-thrift"
+
+  use "tpope/vim-surround"
+
+  use "ggandor/leap.nvim"
 
   -- Telescope
 --  use "nvim-telescope/telescope.nvim"
@@ -98,29 +106,37 @@ return packer.startup(function(use)
     --}
 
   -- Treesitter
+  -- The goal of nvim-treesitter is both to provide a simple and easy way to use the interface for tree-sitter in Neovim and to provide some basic functionality such as highlighting based on it:
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   use "Yggdroot/LeaderF"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
 
+  -- toggler true false
   use "rmagatti/alternate-toggler"
 
+  -- With Wildfire you can quickly select the closest text object among a group of candidates.
   use "gcmt/wildfire.vim"
 
+  -- 缩进竖线
   use "lukas-reineke/indent-blankline.nvim"
 
+  -- status lines
   use "nvim-lualine/lualine.nvim"
+
+  -- A neovim plugin to persist and toggle multiple terminals during an editing session
   use "akinsho/toggleterm.nvim"
   use "folke/which-key.nvim"
 
+  -- 🌵 Viewer & Finder for LSP symbols and tags
   use "liuchengxu/vista.vim"
 
+  -- 🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
