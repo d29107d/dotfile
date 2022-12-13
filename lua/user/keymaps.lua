@@ -99,6 +99,20 @@ function vim.getVisualSelection()
 	end
 end
 
+function escapeText(txt)
+  local str = {
+    '(', '{'
+  }
+
+  ret = txt
+  for key, value in ipairs(str)
+  do
+    ret = string.gsub(ret, value, '\\'..value)
+  end
+
+  return ret
+end
+
 local tb = require('telescope.builtin')
 
 local vim_keymap = vim.keymap.set
@@ -118,11 +132,11 @@ keymap("n", "<leader>fc", "<cmd>FileInDirectory<CR>", opts)
 vim_keymap('n', '<leader>gg', ':Telescope live_grep<cr>', opts)
 vim_keymap('n', '<leader>ga', function()
   local text = vim.call('expand','<cword>')
-	tb.live_grep({ default_text = text })
+	tb.grep_string({ default_text = text })
 end, opts)
 vim_keymap('v', '<leader>ga', function()
 	local text = vim.getVisualSelection()
-	tb.live_grep({ default_text = text })
+	tb.grep_string({ default_text = text })
 end, opts)
 
 keymap("n", "<S-m>", ":Vista!!<cr>", opts)
