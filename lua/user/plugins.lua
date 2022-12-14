@@ -135,6 +135,8 @@ return packer.startup(function(use)
   -- With Wildfire you can quickly select the closest text object among a group of candidates.
   use "gcmt/wildfire.vim"
 
+  use "mg979/vim-visual-multi"
+
   -- 缩进竖线
   use "lukas-reineke/indent-blankline.nvim"
 

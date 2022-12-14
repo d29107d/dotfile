@@ -113,31 +113,33 @@ function escapeText(txt)
   return ret
 end
 
-local tb = require('telescope.builtin')
+local status_ok, tb = pcall(require, "telescope.builtin")
 
-local vim_keymap = vim.keymap.set
-vim_keymap('n', '<leader>gb', function()
-  local text = vim.call('expand','<cword>')
-	tb.current_buffer_fuzzy_find({ default_text = text })
-end, opts)
-vim_keymap('v', '<leader>gb', function()
-	local text = vim.getVisualSelection()
-	tb.current_buffer_fuzzy_find({ default_text = text })
-end, opts)
-
-keymap("n", "<leader>gc", "<cmd>GrepInDirectory<CR>", opts)
-keymap("n", "<leader>fc", "<cmd>FileInDirectory<CR>", opts)
-
---keymap("n", "<leader>gc", ":lua require('telescope').extensions.live_grep_args()<CR>", opts)
-vim_keymap('n', '<leader>gg', ':Telescope live_grep<cr>', opts)
-vim_keymap('n', '<leader>ga', function()
-  local text = vim.call('expand','<cword>')
-	tb.grep_string({ default_text = text })
-end, opts)
-vim_keymap('v', '<leader>ga', function()
-	local text = vim.getVisualSelection()
-	tb.grep_string({ default_text = text })
-end, opts)
+if status_ok then
+  local vim_keymap = vim.keymap.set
+  vim_keymap('n', '<leader>gb', function()
+    local text = vim.call('expand','<cword>')
+  	tb.current_buffer_fuzzy_find({ default_text = text })
+  end, opts)
+  vim_keymap('v', '<leader>gb', function()
+  	local text = vim.getVisualSelection()
+  	tb.current_buffer_fuzzy_find({ default_text = text })
+  end, opts)
+  
+  keymap("n", "<leader>gc", "<cmd>GrepInDirectory<CR>", opts)
+  keymap("n", "<leader>fc", "<cmd>FileInDirectory<CR>", opts)
+  
+  --keymap("n", "<leader>gc", ":lua require('telescope').extensions.live_grep_args()<CR>", opts)
+  vim_keymap('n', '<leader>gg', ':Telescope live_grep<cr>', opts)
+  vim_keymap('n', '<leader>ga', function()
+    local text = vim.call('expand','<cword>')
+  	tb.grep_string({ default_text = text })
+  end, opts)
+  vim_keymap('v', '<leader>ga', function()
+  	local text = vim.getVisualSelection()
+  	tb.grep_string({ default_text = text })
+  end, opts)
+end
 
 keymap("n", "<S-m>", ":Vista!!<cr>", opts)
 

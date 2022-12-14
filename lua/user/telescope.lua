@@ -9,10 +9,9 @@ telescope.load_extension("dir")
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
-    path_display = { "smart" },
+    --path_display = { "smart" },
 
     mappings = {
       i = {
@@ -82,18 +81,26 @@ telescope.setup {
   pickers = {
     find_files = {
       theme = "dropdown",
+      layout_config = { height = 0.9, width = 0.9 },
+      layout_strategy = "vertical",
       --prompt_prefix = "🔍",
     },    
     live_grep = {
       theme = "dropdown",
+      layout_config = { height = 0.9, width = 0.9 },
+      layout_strategy = "vertical",
       --prompt_prefix = "🔍",
     },
     buffers = {
       theme = "dropdown",
+      layout_config = { height = 0.9, width = 0.9 },
+      layout_strategy = "vertical",
       --prompt_prefix = "🔍",
     },
     grep_string = {
       theme = "dropdown",
+      layout_config = { height = 0.9, width = 0.9 },
+      layout_strategy = "vertical",
       --prompt_prefix = "🔍",
     },
 
