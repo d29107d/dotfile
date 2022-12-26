@@ -147,6 +147,11 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
   use "folke/which-key.nvim"
 
+  use {
+    "mfussenegger/nvim-jdtls",
+    ft = {"java"},
+  }
+
   -- 🌵 Viewer & Finder for LSP symbols and tags
   use "liuchengxu/vista.vim"
 
