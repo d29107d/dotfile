@@ -10,7 +10,7 @@ git clone https://github.com/d29107d/dotfile ~/.config/nvim
 
 Run `nvim` and wait for the plugins to be installed 
 
-**NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
+## Install rg on your system 
 
 ## Install font
 ```
