@@ -55,9 +55,9 @@ Next we need to install python support (node is optional)
   ```
   pip install pynvim
   ```
-
 - Neovim node support
 
   ```
   npm i -g neovim
   ```
+- install ctags
