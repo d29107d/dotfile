@@ -61,3 +61,4 @@ Next we need to install python support (node is optional)
   npm i -g neovim
   ```
 - install ctags
+- install ag
