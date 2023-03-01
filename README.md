@@ -13,9 +13,7 @@ Run `nvim` and wait for the plugins to be installed
 ## Install rg on your system 
 
 ## Install font
-```
 https://github.com/ryanoasis/nerd-fonts
-```
 
 
 each video will be associated with a branch so checkout the one you are interested in
