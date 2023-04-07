@@ -99,19 +99,19 @@ function vim.getVisualSelection()
 	end
 end
 
-function escapeText(txt)
-  local str = {
-    '(', '{'
-  }
-
-  ret = txt
-  for key, value in ipairs(str)
-  do
-    ret = string.gsub(ret, value, '\\'..value)
-  end
-
-  return ret
-end
+--[[ function escapeText(txt) ]]
+--[[   local str = { ]]
+--[[     '(', '{' ]]
+--[[   } ]]
+--[[]]
+--[[   ret = txt ]]
+--[[   for key, value in ipairs(str) ]]
+--[[   do ]]
+--[[     ret = string.gsub(ret, value, '\\'..value) ]]
+--[[   end ]]
+--[[]]
+--[[   return ret ]]
+--[[ end ]]
 
 local status_ok, tb = pcall(require, "telescope.builtin")
 
@@ -125,10 +125,10 @@ if status_ok then
   	local text = vim.getVisualSelection()
   	tb.current_buffer_fuzzy_find({ default_text = text })
   end, opts)
-  
+
   keymap("n", "<leader>gc", "<cmd>GrepInDirectory<CR>", opts)
   keymap("n", "<leader>fc", "<cmd>FileInDirectory<CR>", opts)
-  
+
   --keymap("n", "<leader>gc", ":lua require('telescope').extensions.live_grep_args()<CR>", opts)
   vim_keymap('n', '<leader>gg', ':Telescope live_grep<cr>', opts)
   vim_keymap('n', '<leader>ga', function()

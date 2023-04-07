@@ -28,7 +28,7 @@ end
 
 local mappings = {
   e = { ":NvimTreeToggle<cr>", "Toggle NvimTree" },
-  h = { 
+  h = {
     h = { ":nohl<cr>", "No highlight" },
     c = { ":ccl<cr>", "Close quickfix window" },
   },
